@@ -1,7 +1,7 @@
 {
-  "name": "bloggify-custom-app-template",
-  "version": "2.0.0",
-  "description": "A custom application built with @Bloggify.",
+  "name": "sunset-app-bloggify",
+  "version": "1.0.0",
+  "description": "Get sunset times.",
   "main": "bloggify.json",
   "scripts": {
     "start": "bloggify-prod-start",
@@ -58,8 +58,7 @@
     "daty": "^1.1.2",
     "hack": "^0.8.0",
     "qs": "^6.5.1",
-    "solar-calc": "^1.1.0",
-    "suncalc": "^1.8.0"
+    "solar-calc": "^1.1.0"
   },
   "devDependencies": {
     "bloggify-cli": "0.0.0-alpha29",
