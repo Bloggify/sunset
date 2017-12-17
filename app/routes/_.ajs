@@ -1,0 +1,20 @@
+<% include(Bloggify.views.header) %>
+<section>
+    <div class="box">
+        <div contenteditable="true" id="result">
+
+        </div>
+
+        <button class="mg-auto btn btn-primary copy-btn" aria-label="Copied" data-clipboard-target="#result">
+            Copy
+        </button>
+
+        <div class="text-center">
+            <a href="https://bloggify.org" class="footer-icon">
+                <span class="icon-bloggify-mark "></span>
+            </a>
+        </div>
+    </div>
+
+</section>
+<% include(Bloggify.views.footer) %>

@@ -1,0 +1,11 @@
+<%
+    var links = [
+        ["Home", "/"]
+      , ["About", "/about"]
+    ];
+%>
+<div class="menu">
+<% links.forEach(function (c) { %>
+    <a href="<%= c[1] %>"><%= c[0] %></a>
+<% }) %>
+</div>

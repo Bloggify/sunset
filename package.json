@@ -1,0 +1,68 @@
+{
+  "name": "bloggify-custom-app-template",
+  "version": "2.0.0",
+  "description": "A custom application built with @Bloggify.",
+  "main": "bloggify.json",
+  "scripts": {
+    "start": "bloggify-prod-start",
+    "start:dev": "bloggify-dev-start",
+    "bundle": "NODE_ENV=production bloggify-start --exit-after-bundle",
+    "build": "rm -rf dist/ ; snap localhost:8080 && mv localhost dist && cp -r _public/* dist/ && git add . -A && git commit -m 'Build'",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ],
+  "bugs": {
+    "url": "https://github.com/BloggifyTutorials/custom-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BloggifyTutorials/custom-app.git"
+  },
+  "homepage": "https://github.com/BloggifyTutorials/custom-app#readme",
+  "blah": {
+    "title": "Sunset",
+    "installation_command": {
+      "content": [
+        "# Clone this repository",
+        "git clone https://github.com/Bloggify/sunset",
+        "",
+        "# Install the dependencies",
+        "cd custom-app && npm i",
+        "",
+        "# Start the app in dev mode",
+        "npm run start:dev"
+      ],
+      "language": "bash"
+    }
+  },
+  "dependencies": {
+    "bloggify": "0.0.0-alpha21",
+    "bloggify-icons": "^1.0.0",
+    "clipboard": "^1.7.1",
+    "daty": "^1.1.2",
+    "hack": "^0.8.0",
+    "qs": "^6.5.1",
+    "solar-calc": "^1.1.0",
+    "suncalc": "^1.8.0"
+  },
+  "devDependencies": {
+    "bloggify-cli": "0.0.0-alpha29",
+    "gh-pages": "^1.1.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Sunset",
+  "description": "Sunset times.",
+  "domain": "https://sunset.bloggify.io",
+  "styles": [
+    "app/assets/css/index.css"
+  ],
+  "scripts": [
+    "https://cdn.polyfill.io/v2/polyfill.min.js",
+    "app/assets/js/index.js"
+  ]
+}
