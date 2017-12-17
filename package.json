@@ -7,7 +7,7 @@
     "start": "bloggify-prod-start",
     "start:dev": "bloggify-dev-start",
     "bundle": "NODE_ENV=production bloggify-start --exit-after-bundle",
-    "build": "rm -rf dist/ ; snap localhost:8080 && mv localhost dist && git add . -A && git commit -m 'Build'",
+    "build": "rm -rf dist/ ; snap localhost:8080 && mv localhost dist && cp _public/* dist/ && git add . -A && git commit -m 'Build'",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
