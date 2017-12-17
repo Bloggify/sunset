@@ -3,6 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title><%= Bloggify.options.title %></title>
-        <%- Bloggify.assets.cssHtml() %>
+        <%- Bloggify.assets.cssHtml().replace("/@", "@") %>
     </head>
     <body>

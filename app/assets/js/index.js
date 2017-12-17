@@ -1,5 +1,4 @@
-const suncalc = require("suncalc")
-    , qs = require("qs")
+const qs = require("qs")
     , Daty = require("daty")
     , sunsetCalc = require("./sunset")
     , Clipboard = require("clipboard")
