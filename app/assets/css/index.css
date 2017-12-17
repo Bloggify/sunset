@@ -90,3 +90,18 @@ hr {
 input, button {
     font-family: monospace;
 }
+
+@media print {
+    .box {
+        box-shadow: none;
+        width: 100%;
+        font-family: "Helvetica", Arial, sans-serif;
+        border: none;
+    }
+    .btn {
+        display: none;
+    }
+    .box .date {
+        width: 25px;
+    }
+}

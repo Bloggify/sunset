@@ -2,6 +2,7 @@ const qs = require("qs")
     , Daty = require("daty")
     , sunsetCalc = require("./sunset")
     , Clipboard = require("clipboard")
+    , stripTags = require("striptags")
 
 const Months = {
     ro: [
@@ -34,6 +35,16 @@ const Months = {
     ]
 }
 
+const indentNumber = num => {
+    let ret = ""
+    if (num < 10) {
+        ret += "&nbsp;&nbsp;"
+    }
+    ret += "&nbsp;&nbsp;&nbsp;&nbsp;"
+    ret += num
+    return ret
+}
+
 class SunsetForLocations {
     constructor (d, locations) {
         this.locations = locations
@@ -50,10 +61,9 @@ class SunsetForLocations {
     }
     html () {
         return `<div class="table-row">
-            <div class="date">${this.date.getDate()}.</div>
-            <div>` + this.toObject().map(c =>
+            ${indentNumber(this.date.getDate())}. ` + this.toObject().map(c =>
             `${c.label}: ${c.sunset.join(":")}`
-        ).join("; ") + "</div></div>"
+        ).join("; ") + "</div>"
     }
 }
 
@@ -91,7 +101,10 @@ const getSunsetTimesOnFridays = data => {
 
     // Sun Mon ... Fri Sat
     // 0   1       5   6
-    const daysTillNextFriday = 5 - friday.getDay()
+    let daysTillNextFriday = 5 - friday.getDay()
+    if (daysTillNextFriday < 0) {
+        daysTillNextFriday = 6
+    }
 
     if (daysTillNextFriday !== 0) {
         friday.add(daysTillNextFriday, "days")
@@ -111,12 +124,11 @@ const getSunsetTimesOnFridays = data => {
             ret.push(`<strong class="month-name">${Months[data.hl][newMonth]}</strong>`)
             ret.push(`<div class="table">`)
         }
-        console.log(friday)
         ret.push(new SunsetForLocations(friday, data.locations).html())
         friday.add(1, "week")
     } while (friday.getMonth() !== nextQuarterMonth)
     ret.push(`</div>`)
-    ret.push("<p>*) Apusul de soare a fost indicat folosind site-ul: sunset.bloggify.org</p>")
+    ret.push("<br><p>*) Apusul de soare a fost indicat folosind site-ul: sunset.bloggify.org</p>")
     return ret.join("")
 }
 
@@ -126,6 +138,7 @@ const init = () => {
         return getSunsetTimesOnFridays(data)
     }
     if (data.lat) {
+        data.label = stripTags(data.label)
         return `<div class="text-center result-for-city">
             <h3>${data.label}, ${data.date.format("LL")}</h3>
             <h1>${sunsetCalc(data.date, data.lat, data.lon).sunset.join(":")}</h1>
