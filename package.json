@@ -28,22 +28,24 @@
     "bloggify/"
   ],
   "bugs": {
-    "url": "https://github.com/BloggifyTutorials/custom-app/issues"
+    "url": "https://github.com/Bloggify/sunset/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BloggifyTutorials/custom-app.git"
+    "url": "git+https://github.com/Bloggify/sunset.git"
   },
-  "homepage": "https://github.com/BloggifyTutorials/custom-app#readme",
+  "homepage": "https://github.com/Bloggify/sunset#readme",
   "blah": {
     "title": "Sunset",
+    "h_img": "https://i.imgur.com/mdPBIi1.png",
+    "h_url": "http://sunset.bloggify.org",
     "installation_command": {
       "content": [
         "# Clone this repository",
         "git clone https://github.com/Bloggify/sunset",
         "",
         "# Install the dependencies",
-        "cd custom-app && npm i",
+        "cd sunset && npm i",
         "",
         "# Start the app in dev mode",
         "npm run start:dev"
