@@ -53,7 +53,7 @@ class SunsetForLocations {
     toObject () {
         let con = this.locations.map(c => {
             return ({
-                sunset: sunsetCalc(this.date, c.loc[0], c.loc[1]).sunset
+                sunset: sunsetCalc(this.date, c.loc[0], c.loc[1])
               , label: c.label
             })
         })
@@ -62,7 +62,7 @@ class SunsetForLocations {
     html () {
         return `<div class="table-row">
             ${indentNumber(this.date.getDate())}. ` + this.toObject().map(c =>
-            `${c.label}: ${c.sunset.join(":")}`
+            `${c.label}: ${c.sunset}`
         ).join("; ") + "</div>"
     }
 }
@@ -141,7 +141,7 @@ const init = () => {
         data.label = stripTags(data.label)
         return `<div class="text-center result-for-city">
             <h3>${data.label}, ${data.date.format("LL")}</h3>
-            <h1>${sunsetCalc(data.date, data.lat, data.lon).sunset.join(":")}</h1>
+            <h1>${sunsetCalc(data.date, data.lat, data.lon)}</h1>
         </div>`
     }
     setTimeout(() => {
