@@ -105,3 +105,12 @@ input, button {
         width: 25px;
     }
 }
+
+.beky-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -400px;
+    width: 300px;
+}

@@ -1,5 +1,6 @@
 <% include(Bloggify.views.header) %>
 <section>
+    <img src="/images/beky.png" class="beky-img"/>
     <div class="box">
         <div contenteditable="true" id="result">
 
