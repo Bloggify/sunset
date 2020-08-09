@@ -1,6 +1,6 @@
 {
   "name": "sunset-app-bloggify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get sunset times.",
   "main": "bloggify.json",
   "scripts": {
