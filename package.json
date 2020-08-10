@@ -54,17 +54,17 @@
     }
   },
   "dependencies": {
-    "bloggify": "^1.7.1",
+    "bloggify": "^1.8.0",
     "bloggify-icons": "^1.0.1",
-    "clipboard": "^1.7.1",
+    "clipboard": "^2.0.6",
     "daty": "^1.2.1",
     "hack": "^0.8.0",
     "qs": "^6.9.4",
     "striptags": "^3.1.1",
-    "sundown": "^1.0.1"
+    "sundown": "^2.0.0"
   },
   "devDependencies": {
-    "bloggify-cli": "0.0.0-alpha29",
-    "gh-pages": "^1.1.0"
+    "bloggify-cli": "^1.8.0",
+    "gh-pages": "^3.1.0"
   }
 }

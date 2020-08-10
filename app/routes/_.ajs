@@ -1,4 +1,4 @@
-<% include(Bloggify.views.header) %>
+<% include(Bloggify.partials.header) %>
 <section>
     <img src="/images/beky.png" class="beky-img"/>
     <div class="box">
@@ -18,4 +18,4 @@
     </div>
 
 </section>
-<% include(Bloggify.views.footer) %>
+<% include(Bloggify.partials.footer) %>
