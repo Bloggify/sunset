@@ -1,6 +1,6 @@
 {
   "name": "sunset-app-bloggify",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Get sunset times.",
   "main": "bloggify.json",
   "scripts": {
@@ -37,8 +37,8 @@
   "homepage": "https://github.com/Bloggify/sunset#readme",
   "blah": {
     "title": "Sunset",
-    "h_img": "https://i.imgur.com/mdPBIi1.png",
-    "h_url": "http://sunset.bloggify.org",
+    "ex_img": "https://i.imgur.com/mdPBIi1.png",
+    "ex_url": "http://sunset.bloggify.org",
     "installation_command": {
       "content": [
         "# Clone this repository",

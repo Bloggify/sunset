@@ -7,8 +7,6 @@
 
 
 
-[![sunset-app-bloggify](https://i.imgur.com/mdPBIi1.png)](http://sunset.bloggify.org)
-
 
 
 
@@ -40,6 +38,8 @@
 
 
 
+
+[![sunset-app-bloggify](https://i.imgur.com/mdPBIi1.png)](http://sunset.bloggify.org)
 
 
 
