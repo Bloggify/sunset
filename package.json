@@ -54,12 +54,12 @@
     }
   },
   "dependencies": {
-    "bloggify": "0.0.0-alpha21",
-    "bloggify-icons": "^1.0.0",
+    "bloggify": "^1.7.1",
+    "bloggify-icons": "^1.0.1",
     "clipboard": "^1.7.1",
-    "daty": "^1.1.2",
+    "daty": "^1.2.1",
     "hack": "^0.8.0",
-    "qs": "^6.5.1",
+    "qs": "^6.9.4",
     "striptags": "^3.1.1",
     "sundown": "^1.0.1"
   },
