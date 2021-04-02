@@ -8,7 +8,7 @@ $("document").ready(function() {
 
     var locations = [];
     var url = "https://sunset.bloggify.org/?"
-    $("div#results div.location-item").each(function() {
+    $("div#results .location-item").each(function() {
       var location_item = {
         "text": $(this).find("span.place span").text(),
         "lat": $(this).find("span.lat span").text(),
@@ -44,7 +44,7 @@ $("document").ready(function() {
     var $new_result = $(this).parent().clone(true);
     $new_result.find("button.add-location").hide();
     $new_result.find("button.remove-location").show();
-    $new_result.appendTo("div#results div.contents");
+    $new_result.appendTo("table#locations tbody:last-child");
   });
 
   $("button.remove-location").on("click", function() {
@@ -74,14 +74,14 @@ $("document").ready(function() {
 
       results.addLayer(L.marker(location.latlng));
 
-      $new_location = $("div#templates div.location-item").clone(true);
+      $new_location = $("div#templates .location-item").clone(true);
 
       $new_location.find("button.remove-location").hide();
       $new_location.find("span.place span").text(location.text);
       $new_location.find("span.lng span").text(location.latlng.lng);
       $new_location.find("span.lat span").text(location.latlng.lat);
 
-      $new_location.appendTo("div#status div.contents");
+      $new_location.appendTo("table#locations tbody:last-child");
     }
   });
 });

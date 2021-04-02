@@ -181,24 +181,34 @@
                     </div>
                       <div id="status" class="container">
                         <div class="contents">
-                          <p>Hint: start by searching locations.</p>
                         </div>
                       </div>
 
                       <div id="results" class="container">
                         <div class="contents">
-                          <p>Add/remove/edit locations from search results.</p>
                         </div>
                       </div>
 
                       <div id="templates" style="display:none;">
-                        <div class="location-item">
-                          <span class="place"><b><span contenteditable class="editable">Bucharest</span></b></span>
-                          <span class="lat">Lat: <span contenteditable class="editable">0.222</span></span>
-                          <span class="lng">Lng: <span contenteditable class="editable">0.111</span></span>
-                          <button class="add-location btn">Add</button>
-                          <button class="remove-location btn">Remove</button>
-                        </div>
+                        <table>
+                          <thead>
+                          </thead>
+                          <tbody>
+                            <tr style="height: 65px;" class="location-item">
+                              <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                                <span class="place"><b><span contenteditable class="editable">Bucharest</span></b></span>
+                              </td>
+                              <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                                <span class="lat">Lat: <span contenteditable class="editable">0.222</span></span>
+                              </td>
+                              <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                                <span class="lng">Lng: <span contenteditable class="editable">0.111</span></span>
+                                <button class="add-location btn">Add</button>
+                                <button class="remove-location btn">Remove</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                   </div>
                 </div>
@@ -206,7 +216,7 @@
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <div class="u-expanded-width u-table u-table-responsive u-table-1">
-                    <table class="u-table-entity">
+                    <table class="u-table-entity" id="locations">
                       <colgroup>
                         <col width="33.3%">
                         <col width="33.3%">
@@ -220,17 +230,6 @@
                         </tr>
                       </thead>
                       <tbody class="u-table-body">
-                        <tr style="height: 65px;">
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Bihor</td>
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">41,52</td>
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">x<br>
-                          </td>
-                        </tr>
-                        <tr style="height: 65px;">
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Item #3</td>
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                          <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>
