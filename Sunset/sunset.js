@@ -31,8 +31,8 @@ $("document").ready(function() {
       // &hl=ro
     });
 
-    var quarter = $("select#quarter").val();
-    var year = $("select#year").val();
+    var quarter = $("select[name='months']").val();
+    var year = $("select[name='year']").val();
 
     url = url + "quarter=" + quarter + "&year=" + year + "&hl=ro";
     console.log(url);
