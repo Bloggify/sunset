@@ -1,3 +1,7 @@
 div#map {
   display: initial;
 }
+
+table tr.line td {
+  border-bottom: 2px solid #6096ba;
+}

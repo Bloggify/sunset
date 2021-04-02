@@ -69,7 +69,7 @@ $("document").ready(function() {
 
     $("div#status div.contents").html("");
 
-    $("table#locations tr:not(.line)").remove();
+    $("table#locations tbody tr:not(.line)").remove();
 
     for (var i = data.results.length - 1; i >= 0; i--) {
       var location = data.results[i];
@@ -83,7 +83,7 @@ $("document").ready(function() {
       $new_location.find("span.lng span").text(location.latlng.lng);
       $new_location.find("span.lat span").text(location.latlng.lat);
 
-      $new_location.appendTo("table#locations tbody:last-child");
+      $new_location.prependTo("table#locations tbody");
     }
   });
 });
