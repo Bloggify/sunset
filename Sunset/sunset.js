@@ -69,6 +69,8 @@ $("document").ready(function() {
 
     $("div#status div.contents").html("");
 
+    $("table#locations tr:not(.line)").remove();
+
     for (var i = data.results.length - 1; i >= 0; i--) {
       var location = data.results[i];
 
