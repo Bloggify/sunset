@@ -41,7 +41,7 @@ $("document").ready(function() {
 
   $("button.add-location").on("click", function() {
     console.log("Added");
-    var $new_result = $(this).parent().parent().clone(true);
+    var $new_result = $(this).parent().parent().clone(true).addClass("selected");
     $new_result.find("button.add-location").hide();
     $new_result.find("button.remove-location").show();
     $new_result.appendTo("table#locations tbody:last-child");
@@ -69,7 +69,7 @@ $("document").ready(function() {
 
     $("div#status div.contents").html("");
 
-    $("table#locations tbody tr:not(.line)").remove();
+    $("table#locations tbody tr:not(.separator, .selected)").remove();
 
     for (var i = data.results.length - 1; i >= 0; i--) {
       var location = data.results[i];
