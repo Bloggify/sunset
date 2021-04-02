@@ -8,7 +8,7 @@ $("document").ready(function() {
 
     var locations = [];
     var url = "https://sunset.bloggify.org/?"
-    $("div#results .location-item").each(function() {
+    $("table .location-item.selected").each(function() {
       var location_item = {
         "text": $(this).find("span.place span").text(),
         "lat": $(this).find("span.lat span").text(),
