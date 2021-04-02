@@ -41,7 +41,7 @@ $("document").ready(function() {
 
   $("button.add-location").on("click", function() {
     console.log("Added");
-    var $new_result = $(this).parent().clone(true);
+    var $new_result = $(this).parent().parent().clone(true);
     $new_result.find("button.add-location").hide();
     $new_result.find("button.remove-location").show();
     $new_result.appendTo("table#locations tbody:last-child");
@@ -49,7 +49,7 @@ $("document").ready(function() {
 
   $("button.remove-location").on("click", function() {
     console.log("Removed");
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   });
 
   var map = L.map('map', {scrollWheelZoom: false}).setView([0, 0], 1);
