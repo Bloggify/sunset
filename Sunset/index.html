@@ -13,6 +13,7 @@
 
     <script class="u-script" type="text/javascript" src="jquery.js"></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="sunset.js" defer=""></script>
 
     <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -88,39 +89,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ZZZ -->
-    <section>
-
-
-<div id="table-view" class="container">
-  <h2>Table view</h2>
-  <p>Click Generate to create the table.</p>
-
-  <label>Quarter:</label>
-
-  <label>Year:</label>
-
-  <button class="generate-map btn">Generate</button>
-  <div class="contents">
-    <p>No data.</p>
-  </div>
-</div>
-
-<div id="templates" style="display:none;">
-  <div class="location-item">
-    <span class="place"><b><span contenteditable class="editable">Bucharest</span></b></span>
-    <span class="lat">Lat: <span contenteditable class="editable">0.222</span></span>
-    <span class="lng">Lng: <span contenteditable class="editable">0.111</span></span>
-    <button class="add-location btn">Add</button>
-    <button class="remove-location btn">Remove</button>
-  </div>
-</div>
-
-  <script src="./sunset.js"></script>
-
-    </section>
-    <!-- zzz -->
 
     <section class="u-clearfix u-section-3" id="carousel_7e7c">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -222,6 +190,16 @@
                           <p>Add/remove/edit locations from search results.</p>
                         </div>
                       </div>
+
+                      <div id="templates" style="display:none;">
+                        <div class="location-item">
+                          <span class="place"><b><span contenteditable class="editable">Bucharest</span></b></span>
+                          <span class="lat">Lat: <span contenteditable class="editable">0.222</span></span>
+                          <span class="lng">Lng: <span contenteditable class="editable">0.111</span></span>
+                          <button class="add-location btn">Add</button>
+                          <button class="remove-location btn">Remove</button>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -257,6 +235,13 @@
                     </table>
                   </div>
                   <a href="Home.html#result" data-page-id="1731623179" class="u-btn u-btn-round u-button-style u-hover-palette-5-dark-3 u-palette-1-base u-radius-50 u-text-body-alt-color u-btn-1">Calculate Sunset Times »</a>
+
+                  <div id="table-view" class="container">
+                    <button class="generate-map btn">Generate</button>
+                    <div class="contents">
+                      <p>No data.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
