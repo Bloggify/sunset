@@ -3,6 +3,8 @@
 // table view - locations to be selected by default
 // locations decimals: 2, 3?
 // Implement Generate View
+// Map style
+// Map position after search
 
 $("document").ready(function() {
   $(document).on('keypress', '.editable', function(e){
@@ -14,7 +16,7 @@ $("document").ready(function() {
 
     var locations = [];
     var url = "https://sunset.bloggify.org/?"
-    $("table .location-item.selected").each(function() {
+    $("table .location-item").each(function() {
       var location_item = {
         "text": $(this).find("span.place span").text(),
         "lat": $(this).find("span.lat span").text(),
@@ -45,14 +47,6 @@ $("document").ready(function() {
     $("div#table-view div.contents").append("<a href='" + url + "' target='_blank'>View table</a>");
   });
 
-  $("button.add-location").on("click", function() {
-    console.log("Added");
-    var $new_result = $(this).parent().parent().clone(true).addClass("selected");
-    $new_result.find("button.add-location").hide();
-    $new_result.find("button.remove-location").show();
-    $new_result.appendTo("table#locations tbody:last-child");
-  });
-
   $("button.remove-location").on("click", function() {
     console.log("Removed");
     $(this).parent().parent().remove();
@@ -75,8 +69,6 @@ $("document").ready(function() {
 
     $("div#status div.contents").html("");
 
-    $("table#locations tbody tr:not(.separator, .selected)").remove();
-
     for (var i = data.results.length - 1; i >= 0; i--) {
       var location = data.results[i];
 
@@ -84,12 +76,11 @@ $("document").ready(function() {
 
       $new_location = $("div#templates .location-item").clone(true);
 
-      $new_location.find("button.remove-location").hide();
       $new_location.find("span.place span").text(location.text);
       $new_location.find("span.lng span").text(location.latlng.lng);
       $new_location.find("span.lat span").text(location.latlng.lat);
 
-      $new_location.prependTo("table#locations tbody");
+      $new_location.appendTo("table#locations tbody:last-child");
     }
   });
 });
