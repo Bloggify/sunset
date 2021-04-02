@@ -2,6 +2,6 @@ div#map {
   display: initial;
 }
 
-table tr.line td {
+table tr.separator td {
   border-bottom: 2px solid #6096ba;
 }
