@@ -1,3 +1,9 @@
+// TODO
+// On click Next: scroll page to next section
+// table view - locations to be selected by default
+// locations decimals: 2, 3?
+// Implement Generate View
+
 $("document").ready(function() {
   $(document).on('keypress', '.editable', function(e){
       return e.which != 13;
