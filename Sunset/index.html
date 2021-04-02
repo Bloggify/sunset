@@ -89,8 +89,13 @@
     </section>
 
     <!-- ZZZ -->
+
+<style>
+  div#map {
+    display: initial;
+  }
+</style>
     <section>
-<div id="map"></div>
 
 <div id="status" class="container">
   <h2>Search results</h2>
@@ -145,7 +150,6 @@
 
 <script>
   $("document").ready(function() {
-    alert("asdasd");
     $(document).on('keypress', '.editable', function(e){
         return e.which != 13;
     });
@@ -320,7 +324,7 @@
                 <div class="u-container-layout u-valign-bottom u-container-layout-1">
                   <div class="u-expanded-width u-grey-light-2 u-map u-map-1">
                     <div class="embed-responsive">
-                      MAP TODO
+                      <div id="map"></div>
                       <!-- <iframe class="embed&#45;responsive&#45;item" src="//maps.google.com/maps?output=embed&#38;amp;q=Manhattan%2C%20New%20York&#38;amp;z=10&#38;amp;t=m" data&#45;map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMk1hbmhhdHRhbiUyQyUyME5ldyUyMFlvcmslMjIlMkMlMjJ6b29tJTIyJTNBMTAlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQSUyMiUyMiU3RA=="></iframe> -->
                     </div>
                   </div>
