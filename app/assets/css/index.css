@@ -1,0 +1,7 @@
+@import "nicepage.css";
+@import "Home.css";
+@import "bloggify-icons/lib/bloggify-icons.css";
+
+div#map {
+  display: initial;
+}

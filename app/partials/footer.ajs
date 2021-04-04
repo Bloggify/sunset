@@ -1,0 +1,8 @@
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <%- Bloggify.assets.jsHtml() %>
+
+    <footer class="u-align-center u-clearfix u-footer u-palette-5-dark-3 u-footer" id="sec-831a"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">© Bloggify 2021</p>
+      </div></footer>
+  </body>
+</html>

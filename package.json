@@ -1,0 +1,71 @@
+{
+  "name": "sunset-app-bloggify",
+  "version": "2.0.1",
+  "description": "Get sunset times.",
+  "main": "bloggify.json",
+  "scripts": {
+    "start": "bloggify-prod-start",
+    "start:dev": "bloggify-dev-start",
+    "bundle": "NODE_ENV=production bloggify-start --exit-after-bundle",
+    "build": "rm -rf dist/ ; snap localhost:8080 && mv localhost dist && cp -r _public/* dist/ && git add . -A && git commit -m 'Build'",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ],
+  "bugs": {
+    "url": "https://github.com/Bloggify/sunset/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bloggify/sunset.git"
+  },
+  "homepage": "https://github.com/Bloggify/sunset#readme",
+  "blah": {
+    "title": "Sunset",
+    "ex_img": "https://i.imgur.com/mdPBIi1.png",
+    "ex_url": "http://sunset.bloggify.org",
+    "installation_command": {
+      "content": [
+        "# Clone this repository",
+        "git clone https://github.com/Bloggify/sunset",
+        "",
+        "# Install the dependencies",
+        "cd sunset && npm i",
+        "",
+        "# Start the app in dev mode",
+        "npm run start:dev"
+      ],
+      "language": "bash"
+    }
+  },
+  "dependencies": {
+    "bloggify": "^1.8.0",
+    "bloggify-icons": "^1.0.1",
+    "clipboard": "^2.0.6",
+    "daty": "^1.2.1",
+    "hack": "^0.8.0",
+    "jquery": "^3.6.0",
+    "qs": "^6.9.4",
+    "striptags": "^3.1.1",
+    "sundown": "^2.0.0"
+  },
+  "devDependencies": {
+    "bloggify-cli": "^1.8.0",
+    "gh-pages": "^3.1.0"
+  }
+}
