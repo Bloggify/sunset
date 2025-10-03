@@ -46,20 +46,20 @@ const indentNumber = num => {
 }
 
 class SunsetForLocations {
-    constructor(d, locations) {
+    constructor (d, locations) {
         this.locations = locations
         this.date = d
     }
-    toObject() {
+    toObject () {
         let con = this.locations.map(c => {
             return ({
                 sunset: sunsetCalc(this.date, c.loc[0], c.loc[1])
-                , label: c.label
+              , label: c.label
             })
         })
         return con
     }
-    html() {
+    html () {
         return `<div class="table-row">
             ${indentNumber(this.date.getDate())}. ` + this.toObject().map(c =>
             `${c.label}: ${c.sunset}`
@@ -69,11 +69,11 @@ class SunsetForLocations {
 
 const parseQs = () => {
     const data = Object.assign({
-        l: []
+          l: []
         , quarter: null
         , year: new Date().getFullYear()
         , hl: "en"
-    }, qs.parse(location.search.slice(1))
+      }, qs.parse(location.search.slice(1))
     );
 
     if (data.l) {
@@ -131,6 +131,7 @@ const getSunsetTimesOnFridays = data => {
     ret.push("<br><p>*) Apusul de soare a fost indicat folosind site-ul: sunset.bloggify.org</p>")
     return ret.join("")
 }
+
 
 // New Function to validate latitude and longitude
 const validateCoordinates = (lat, lon) => {
