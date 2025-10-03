@@ -46,20 +46,20 @@ const indentNumber = num => {
 }
 
 class SunsetForLocations {
-    constructor (d, locations) {
+    constructor(d, locations) {
         this.locations = locations
         this.date = d
     }
-    toObject () {
+    toObject() {
         let con = this.locations.map(c => {
             return ({
                 sunset: sunsetCalc(this.date, c.loc[0], c.loc[1])
-              , label: c.label
+                , label: c.label
             })
         })
         return con
     }
-    html () {
+    html() {
         return `<div class="table-row">
             ${indentNumber(this.date.getDate())}. ` + this.toObject().map(c =>
             `${c.label}: ${c.sunset}`
@@ -69,11 +69,11 @@ class SunsetForLocations {
 
 const parseQs = () => {
     const data = Object.assign({
-          l: []
+        l: []
         , quarter: null
         , year: new Date().getFullYear()
         , hl: "en"
-      }, qs.parse(location.search.slice(1))
+    }, qs.parse(location.search.slice(1))
     );
 
     if (data.l) {
@@ -132,12 +132,36 @@ const getSunsetTimesOnFridays = data => {
     return ret.join("")
 }
 
+// New Function to validate latitude and longitude
+const validateCoordinates = (lat, lon) => {
+    const latitude = parseFloat(lat)
+    const longitude = parseFloat(lon)
+
+    if (isNaN(latitude) || latitude < -90 || latitude > 90) {
+        return { valid: false, message: "Latitude must be between -90 and 90" }
+    }
+    if (isNaN(longitude) || longitude < -180 || longitude > 180) {
+        return { valid: false, message: "Longitude must be between -180 and 180" }
+    }
+    return { valid: true }
+}
+
 const init = () => {
     const data = parseQs()
     if (data.quarter) {
         return getSunsetTimesOnFridays(data)
     }
     if (data.lat) {
+        // Validation before processing
+        const validation = validateCoordinates(data.lat, data.lon)
+        if (!validation.valid) {
+            return `<div class="text-center result-for-city">
+                <h3>Invalid Coordinates</h3>
+                <p class="error-message" style="color: red;">${validation.message}</p>
+                <button onclick="window.location.href = window.location.pathname" class="btn btn-primary">Try Again</button>
+            </div>`
+        }
+
         data.label = stripTags(data.label)
         return `<div class="text-center result-for-city">
             <h3>${data.label}, ${data.date.format("LL")}</h3>
@@ -147,42 +171,71 @@ const init = () => {
     setTimeout(() => {
         document.querySelector(".copy-btn").remove()
         document.querySelector("#result").removeAttribute("contenteditable")
-        fetch("https://ipinfo.io/json").then(res => res.json()).then(res => {
-            const loc = res.loc.split(",")
-            document.querySelector("[name='lat']").value = loc[0]
-            document.querySelector("[name='lon']").value = loc[1]
-            document.querySelector("[name='label']").value = res.city
-        })
+        fetch("https://ipinfo.io/json")
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch location')
+                return res.json()
+            })
+            .then(res => {
+                const loc = res.loc.split(",")
+                document.querySelector("[name='lat']").value = loc[0]
+                document.querySelector("[name='lon']").value = loc[1]
+                document.querySelector("[name='label']").value = res.city
+            })
+            .catch(err => {
+                console.warn('Could not auto-detect location:', err)
+                // Fallback to default coordinates (Greenwich)
+                document.querySelector("[name='lat']").value = "51.4778"
+                document.querySelector("[name='lon']").value = "-0.0015"
+                document.querySelector("[name='label']").value = "Greenwich"
+            })
     }, 0);
     return `<div class="hack"><form>
         <h1>Sunset</h1>
         <fieldset class="form-group form-success">
             <label for="lat">Latitude</label>
-            <input id="lat" name="lat" type="text" class="form-control">
-            <div class="help-block">City's latitude.</div>
+            <input id="lat" name="lat" type="text" class="form-control" min="-90" max="90" step="any">
+            <div class="help-block">City's latitude (-90 to 90).</div>
         </fieldset>
         <fieldset class="form-group form-success">
             <label for="lon">Longitude</label>
-            <input id="lon" name="lon" type="text" class="form-control">
-            <div class="help-block">City's longitude.</div>
+            <input id="lon" name="lon" type="text" class="form-control" min="-180" max="180" step="any">
+            <div class="help-block">City's longitude (-180 to 180).</div>
         </fieldset>
         <fieldset class="form-group form-success">
             <label for="label">City Name</label>
-            <input id="label" name="label" type="text" class="form-control">
+            <input id="label" name="label" type="text" class="form-control" required>
             <div class="help-block">The city name or label you want to display.</div>
         </fieldset>
         <fieldset class="form-group form-success">
             <label for="date">Date</label>
-            <input id="date" name="date" type="date" class="form-control" value="${new Daty().format("YYYY-MM-DD")}">
+            <input id="date" name="date" type="date" class="form-control" value="${new Daty().format("YYYY-MM-DD")}" required>
             <div class="help-block">The date you want the sunset time for. Default: <i>today</i>.</div>
         </fieldset>
         <fieldset class="form-group form-success">
-            <button class="btn btn-primary">Get sunset time</button>
+            <button class="btn btn-primary" type="submit">Get sunset time</button>
         </fieldset>
     </form></div>`
 }
 
 result.innerHTML = init()
+
+// Add form validation event listener
+const form = document.querySelector('form')
+if (form) {
+    form.addEventListener('submit', (e) => {
+        const lat = document.querySelector("[name='lat']").value
+        const lon = document.querySelector("[name='lon']").value
+
+        const validation = validateCoordinates(lat, lon)
+        if (!validation.valid) {
+            e.preventDefault()
+            alert(validation.message)
+            return false
+        }
+    })
+}
+
 const clip = new Clipboard(document.querySelector("[data-clipboard-target]"))
 clip.on("success", e => {
     e.trigger.innerHTML = "Copied"
