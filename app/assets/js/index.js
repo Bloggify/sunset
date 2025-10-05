@@ -164,10 +164,25 @@ const init = () => {
         }
 
         data.label = stripTags(data.label)
-        return `<div class="text-center result-for-city">
-            <h3>${data.label}, ${data.date.format("LL")}</h3>
-            <h1>${sunsetCalc(data.date, data.lat, data.lon)}</h1>
-        </div>`
+        
+        // Generate sunset times for 3 days 
+        let sunsetInfo = `<div class="text-center result-for-city">
+            <h3>${data.label}</h3>`
+        
+        for (let i = 0; i < 3; i++) {
+            const currentDate = new Daty(data.date)
+            currentDate.add(i, 'days')
+            const sunsetTime = sunsetCalc(currentDate, data.lat, data.lon)
+            const dayLabel = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : currentDate.format('dddd')
+            
+            sunsetInfo += `<div class="sunset-day">
+                <span class="day-label">${dayLabel}</span>
+                <span class="date-label">${currentDate.format('MMM DD')}</span>
+                <span class="sunset-time">${sunsetTime}</span>
+            </div>`
+        }
+        
+        return sunsetInfo
     }
     setTimeout(() => {
         document.querySelector(".copy-btn").remove()
