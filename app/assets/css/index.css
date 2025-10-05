@@ -114,8 +114,6 @@ input, button {
     width: 300px;
 }
 
-/* Add this to your existing CSS */
-
 .sunset-day {
     display: flex;
     justify-content: space-between;
