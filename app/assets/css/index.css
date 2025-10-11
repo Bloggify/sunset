@@ -6,7 +6,6 @@ body {
     font-family: "Monaco", monospace;
     color: #444;
 }
-
 img {
     width: 30%;
     max-width: 100%;
@@ -113,4 +112,52 @@ input, button {
     transform: translate(-50%, -50%);
     margin-top: -400px;
     width: 300px;
+}
+
+.sunset-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #4299e1;
+}
+
+.day-label {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #333;
+    min-width: 80px;
+    text-align: left;
+}
+
+.date-label {
+    color: #666;
+    font-size: 0.9em;
+    min-width: 60px;
+    text-align: center;
+}
+
+.sunset-time {
+    font-family: 'Monaco', monospace;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #4299e1;
+    min-width: 80px;
+    text-align: right;
+}
+
+@media (max-width: 480px) {
+    .sunset-day {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .day-label, .date-label, .sunset-time {
+        min-width: auto;
+        text-align: center;
+    }
 }
